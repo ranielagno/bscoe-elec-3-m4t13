@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flight of Argon.Plugins", "Flight of Argon.Plugins.csproj", "{1D737BA4-F0CE-80D7-45F8-BA40824C96BC}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flight of Argon", "Flight of Argon.csproj", "{1BCFD991-9D03-D312-2A5C-E8374EEC503E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flight of Argon.Editor.Plugins", "Flight of Argon.Editor.Plugins.csproj", "{EE2CBC56-279E-6C63-DACA-6EE169D11F38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D737BA4-F0CE-80D7-45F8-BA40824C96BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D737BA4-F0CE-80D7-45F8-BA40824C96BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D737BA4-F0CE-80D7-45F8-BA40824C96BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D737BA4-F0CE-80D7-45F8-BA40824C96BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1BCFD991-9D03-D312-2A5C-E8374EEC503E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1BCFD991-9D03-D312-2A5C-E8374EEC503E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCFD991-9D03-D312-2A5C-E8374EEC503E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCFD991-9D03-D312-2A5C-E8374EEC503E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2CBC56-279E-6C63-DACA-6EE169D11F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2CBC56-279E-6C63-DACA-6EE169D11F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2CBC56-279E-6C63-DACA-6EE169D11F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2CBC56-279E-6C63-DACA-6EE169D11F38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

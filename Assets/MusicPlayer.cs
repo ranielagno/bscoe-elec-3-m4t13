@@ -5,13 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour {
 
+    bool checker;
+
 	// Use this for initialization
 	void Start () {
-        Invoke("LoadGameScene", 2f);
+        
 	}
-	
-	
-	void LoadGameScene () {
+
+    private void Update() {
+        if (Input.anyKey && !checker) {
+            checker = true;
+            Invoke("LoadGameScene", 2f);
+        }
+    }
+
+
+    void LoadGameScene () {
         SceneManager.LoadScene(1);
 	}
 }
