@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour {
+
+    Rigidbody rigidbody;
+    public ParticleSystem particle;
 
     [SerializeField] float speed = 15f;
     [SerializeField] float xRange = 5f;
@@ -19,7 +23,7 @@ public class Ship : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -58,4 +62,23 @@ public class Ship : MonoBehaviour {
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Terrain")
+        {
+            print("Terrain!");
+
+            particle.Play();
+            StartCoroutine(restart());
+
+        }
+    }
+
+    IEnumerator restart()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+    }
+
 }
