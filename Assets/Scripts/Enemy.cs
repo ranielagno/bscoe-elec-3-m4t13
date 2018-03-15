@@ -1,29 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
     [SerializeField] GameObject explosionFX;
     [SerializeField] Transform parent;
     [SerializeField] AudioSource sfx;
+    [SerializeField] int scorePerHit = 12;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    ScoreBoard scoreBoard;
+
+    private void Start()
+    {
+        scoreBoard = FindObjectOfType<ScoreBoard>();
+    }
 
     private void OnParticleCollision(GameObject other)
     {
         print("Enemy dead!");
         EnemyDestroy();
+        AddScore();
     }
-	
-	private void EnemyDestroy()
+
+    private void AddScore()
+    {
+        scoreBoard.ScoreHit(scorePerHit);
+    }
+
+    private void EnemyDestroy()
     {
         GameObject explosion = Instantiate(explosionFX, transform.position, Quaternion.identity);
         explosion.transform.parent = parent;

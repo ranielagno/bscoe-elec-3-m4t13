@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using UnityEngine.SceneManagement;
 
-public class Ship : MonoBehaviour {
+public class ShipController : MonoBehaviour {
 
-    [SerializeField] ParticleSystem shipExplosion;
-    [SerializeField] AudioSource explosionSfx;
     [SerializeField] float speed = 15f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 2f;
@@ -55,22 +51,6 @@ public class Ship : MonoBehaviour {
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.tag == "Terrain")
-        {
-            print("Terrain!");
-            explosionSfx.Play();
-            shipExplosion.Play();
-            StartCoroutine(restart());
-
-        }
-    }
-
-    IEnumerator restart()
-    {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
-    }
+   
 
 }

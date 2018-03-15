@@ -8,7 +8,6 @@ public class TimelineController : MonoBehaviour {
     public PlayableDirector playableDirector;
 	
     void Start () {
-        print("yeah");
         playableDirector.Play();
 	}
 	
