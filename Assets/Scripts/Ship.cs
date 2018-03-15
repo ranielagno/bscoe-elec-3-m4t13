@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Ship : MonoBehaviour {
 
     [SerializeField] ParticleSystem shipExplosion;
+    [SerializeField] AudioSource explosionSfx;
     [SerializeField] float speed = 15f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 2f;
@@ -59,7 +60,7 @@ public class Ship : MonoBehaviour {
         if(collision.collider.tag == "Terrain")
         {
             print("Terrain!");
-
+            explosionSfx.Play();
             shipExplosion.Play();
             StartCoroutine(restart());
 
