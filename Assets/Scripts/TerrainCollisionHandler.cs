@@ -9,6 +9,7 @@ public class TerrainCollisionHandler : MonoBehaviour {
     
     private void OnCollisionEnter(Collision collision)
     {
+        /*
         if (collision.collider.tag == "Terrain")
         {
             explosionSfx.Play();
@@ -16,6 +17,7 @@ public class TerrainCollisionHandler : MonoBehaviour {
             StartCoroutine(restart());
 
         }
+        */
     }
 
     IEnumerator restart()

@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Ship
   - Terrain
+  - Trident
+  - Droid
   layers:
   - Default
   - TransparentFX

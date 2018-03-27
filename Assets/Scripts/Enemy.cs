@@ -6,25 +6,51 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject explosionFX;
     [SerializeField] Transform parent;
     [SerializeField] AudioSource sfx;
-    [SerializeField] int scorePerHit = 12;
+
+    int tridentScore = 10;
+    int droidScore = 5;
+
+    int tridentHits = 2;
+    int droidHits = 1;
+
+    int hits;
+    int enemyDestroyScore;
 
     ScoreBoard scoreBoard;
+    String enemyTag;
 
     private void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();
+        enemyTag = gameObject.tag;
+
+        if (enemyTag.Equals("Trident"))
+        {
+            hits = tridentHits;
+            enemyDestroyScore = tridentScore;
+        }
+        else if (enemyTag.Equals("Droid"))
+        {
+            hits = droidHits;
+            enemyDestroyScore = droidScore;
+        }
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        print("Enemy dead!");
-        EnemyDestroy();
-        AddScore();
+        hits -= 1;
+        print("Enemy collision!");
+        if (hits < 1)
+        {
+            EnemyDestroy();
+            print("Enemy dead!");
+            AddScore();
+        }
     }
 
     private void AddScore()
     {
-        scoreBoard.ScoreHit(scorePerHit);
+        scoreBoard.ScoreHit(enemyDestroyScore);
     }
 
     private void EnemyDestroy()
